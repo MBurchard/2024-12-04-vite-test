@@ -53,3 +53,5 @@ Found 2 errors.
 Additionally, my IDE indicates that `replaceAll` is not supported with the current configuration. \
 Overall, this behavior is correct and expected.
 
+## The Bug
+Adding **ES2021** to *tsconfig.app.json* should fix the project setup and everything should work, but it does not!
