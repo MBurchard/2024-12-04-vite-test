@@ -4,7 +4,7 @@ defineProps<{
 }>()
 
 const test = 'Hello World';
-const test2 = test.replace('o', 'a');
+const test2 = test.replaceAll('o', 'a');
 </script>
 
 <template>

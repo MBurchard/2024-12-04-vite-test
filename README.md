@@ -29,6 +29,27 @@ The command used was `pnpm create vite`.
 > pnpm dev
 
 ## The Test Case
-I then changed the Hello World.vue to have a simplest possible test case.
+I modified *HelloWorld.vue* to create the simplest possible test case.
 
-The `replace` method is supported and all works fine.
+The `replace` method is supported, and everything works as expected..
+
+This version corresponds to the second commit.
+
+Now I changed `replace` to `replaceAll`. This is also widely supported. However, you need to configure `"lib": ["ES2021"]`or later to use it.
+
+The project generator created a *tsconfig.app.json* that extends *@vue/tsconfig/tsconfig.dom.json* which uses **ES2020**.
+
+At this point, `"dev": "vite",` still works, but `"build": "run-p type-check \"build-only {@}\" --",` throws the following error:
+
+```
+src/components/HelloWorld.vue:7:20 - error TS2550: Property 'replaceAll' does not exist on type '"Hello World"'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+
+7 const test2 = test.replaceAll('o', 'a');
+                     ~~~~~~~~~~
+
+
+Found 2 errors.
+```
+Additionally, my IDE indicates that `replaceAll` is not supported with the current configuration. \
+Overall, this behavior is correct and expected.
+
