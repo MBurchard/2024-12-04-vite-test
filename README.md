@@ -55,3 +55,12 @@ Overall, this behavior is correct and expected.
 
 ## The Bug
 Adding **ES2021** to *tsconfig.app.json* should fix the project setup and everything should work, but it does not!
+
+## The Solution
+I searched for a long time until I found the cause in the tsconfig files.
+
+In the *tsconfig.vitest.json* **lib** is overwritten, but that's not all. \
+I also had to change the order of include and exclude in all tsconfig files. \
+These two entries had to come after **compilerOptions**.
+
+With these changes, everything finally works in the project, development, test and build process.
